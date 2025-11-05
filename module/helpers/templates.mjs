@@ -4,7 +4,7 @@
  * @return {Promise}
  */
 export const preloadHandlebarsTemplates = async function () {
-  return loadTemplates([
+  return foundry.applications.handlebars.loadTemplates([
     // Actor partials.
     'systems/flabbergasted/templates/actor/parts/actor-sceneCues.hbs',
     'systems/flabbergasted/templates/actor/parts/actor-traits.hbs',

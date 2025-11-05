@@ -63,13 +63,13 @@ Hooks.once('init', function () {
   CONFIG.ActiveEffect.legacyTransferral = false;
 
   // Register sheet application classes
-  Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('flabbergasted', FlabbergastedActorSheet, {
+  foundry.documents.collections.Actors.unregisterSheet('core', foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet('flabbergasted', FlabbergastedActorSheet, {
     makeDefault: true,
     label: 'FLABBERGASTED.SheetLabels.Actor',
   });
-  Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('flabbergasted', FlabbergastedItemSheet, {
+  foundry.documents.collections.Items.unregisterSheet('core', foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet('flabbergasted', FlabbergastedItemSheet, {
     makeDefault: true,
     label: 'FLABBERGASTED.SheetLabels.Item',
   });
