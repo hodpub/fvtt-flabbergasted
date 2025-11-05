@@ -217,7 +217,6 @@ export class FlabbergastedActorSheet extends foundry.appv1.sheets.ActorSheet {
     html.on('click', '.rollable.status', this._onStatusClick.bind(this));
     html.on('click', '.rollable.luck-coin', this._onLuckCoinClick.bind(this));
     html.on('click', '.rollable.nickname', this._onNicknameClick.bind(this));
-    html.on('click', '.rollable.nickname', this._onNicknameClick.bind(this));
     html.on('click', '.rollable.members-roles-edit', this._updateMemberRoles.bind(this));
     html.on('click', '.rollable.socialClub', this._onDeleteSocialClub.bind(this));
     html.on('click', '.rollable.deleteFlaw', this._onDeleteFlaw.bind(this));
