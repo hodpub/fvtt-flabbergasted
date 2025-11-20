@@ -77,7 +77,9 @@
     "StatusTooltip": "<p>Use \"Shift + Click\" to increase the value.</p><p>Use \"Alt/Options + Click\" to decrease the value.</p>",
     "LuckyCoinTooltip": "<p>Use \"Shift + Click\" on the coin to increase the value.</p><p>Use \"Alt/Options + Click\" on the coin to decrease the value.</p>",
     "NicknameTooltip": "<p>Use \"Click\" to mark the nickname as used, if you have one.</p><p>Use \"Alt/Options + Click\" to mark it as unused.</p>",
-    "SceneCuesTooltip":"<p>Use \"Right Click\" to edit/delete.</p><p>Use \"Click\" to use the scene cue, if you have available usages.</p>"
+    "SceneCuesTooltip":"<p>Use \"Right Click\" to edit/delete.</p><p>Use \"Click\" to use the scene cue, if you have available usages.</p>",
+    "InfluenceTooltip": "<p>In <strong>Flabbergasted - Mystified</strong></p> <p>Certain scene cues dabble with the <em>metaphysical</em>, a realm fraught with inherent risks. When dabbling with the unknown, one risks the intrusion of external influences that might temporarily meddle with one’s personality, behaviour, or even mastery over one’s own body.</p> <p> Pasting the rollable table’s UUID into this field will automatically draw a result from the <strong>Influence Table</strong> whenever this Scene Cue is triggered. </p> <p> For standard Scene Cues, you can leave this field blank.</p>",
+    "InfluenceField": "Influence Rollable Table UUID"
   },
   "TYPES": {
     "Actor": {

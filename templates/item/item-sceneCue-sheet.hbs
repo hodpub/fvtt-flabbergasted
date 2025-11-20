@@ -78,6 +78,15 @@
         </div>
       </div>
       {{/if}}
+        <div class='resource form-group'>
+          <div class="info" style="max-width: 28px; flex-basis: 0; flex-grow: 1;">
+            <label class="resource-label"><i class="fa-solid fa-circle-info" style="margin-left:5px;" data-tooltip="{{localize "FLABBERGASTED.InfluenceTooltip"}}"></i></label>
+          </div>
+          <label class="resource-label">{{ localize "FLABBERGASTED.InfluenceField" }}</label>
+          <div class='form-fields'>
+            <input type="text" name="system.influence" value='{{system.influence}}' data-dtype='text'>
+          </div>
+        </div>
     </div>
   </section>
 </form>
