@@ -8,7 +8,6 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
     const fields = foundry.data.fields;
     const schema = super.defineSchema();
 
-
     schema.socialStanding = new fields.NumberField({ ...DATA_COMMON.requiredInteger, initial: 0, min: -1, max: 1 });
     schema.maxUsage = new fields.NumberField({ ...DATA_COMMON.requiredInteger, initial: 0, min: 0, max: 3 });
     schema.availableUsage = new fields.NumberField({ ...DATA_COMMON.requiredInteger, initial: 0, min: 0, max: 3 });
@@ -45,7 +44,6 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
 
   async roll(actor, eventType) {
     const item = this.parent;
-    let hasInflu = foundry.utils.parseUuid(item.system.influence);
 
     if (eventType == 1) {
       let value = Math.min(item.system.maxUsage, item.system.availableUsage + 1);
@@ -93,10 +91,16 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
       content: content,
     });
 
-    // Influence Roll here
-    if ( hasInflu )
-      await ( await fromUuid(hasInflu.uuid)).draw({rollMode: CONST.DICE_ROLL_MODES.PRIVATE} );  
-
     console.log(actor.system.socialStanding);
+
+    // Influence Roll here
+    if (!item.system.influence)
+      return;
+      
+    const table = await fromUuid(item.system.influence);
+    if (!table)
+      return ui.notifications.error("Influence Roll table not found");
+      
+    return table.draw();
   }
 }
