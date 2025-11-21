@@ -24,14 +24,7 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
 
     // add "influence field"
     schema.influence = new fields.DocumentUUIDField({
-      type: "RollTable",
-      validate: uuid => {
-        // relying on DocumentUUIDField's validationError
-        /*
-        const {type, id, collection} = foundry.utils.parseUuid(uuid) ?? {};
-        if ( collection || foundry.data.validators.isValidId(id) ) { return uuid; }
-        */
-      }
+      type: "RollTable"
     });
 
     return schema;
