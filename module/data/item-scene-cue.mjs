@@ -7,7 +7,7 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
   static defineSchema() {
     const fields = foundry.data.fields;
     const schema = super.defineSchema();
-    
+
 
     schema.socialStanding = new fields.NumberField({ ...DATA_COMMON.requiredInteger, initial: 0, min: -1, max: 1 });
     schema.maxUsage = new fields.NumberField({ ...DATA_COMMON.requiredInteger, initial: 0, min: 0, max: 3 });
@@ -25,8 +25,13 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
     // add "influence field"
     schema.influence = new fields.DocumentUUIDField({
       type: "RollTable",
-      // validate: value => isDocument(value),
-      validationError: `Type can only be '${this.TYPE}'.`,
+      validate: uuid => {
+        // relying on DocumentUUIDField's validationError
+        /*
+        const {type, id, collection} = foundry.utils.parseUuid(uuid) ?? {};
+        if ( collection || foundry.data.validators.isValidId(id) ) { return uuid; }
+        */
+      }
     });
 
     return schema;
@@ -95,9 +100,9 @@ export default class FlabbergastedSceneCue extends FlabbergastedItemBase {
       content: content,
     });
 
-    // TODO: verify existence and type; use validationError
+    // Influence Roll here
     if ( hasInflu )
-      await (await fromUuid(hasInflu.uuid)).draw({rollMode: CONST.DICE_ROLL_MODES.PRIVATE});  
+      await ( await fromUuid(hasInflu.uuid)).draw({rollMode: CONST.DICE_ROLL_MODES.PRIVATE} );  
 
     console.log(actor.system.socialStanding);
   }
